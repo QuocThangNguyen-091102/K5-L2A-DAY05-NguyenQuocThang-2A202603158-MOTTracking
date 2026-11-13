@@ -15,7 +15,7 @@ K5-L2-MOTTracking
 Repo bài nộp của bạn:
 
 ```text
-K5-L2-DAY05-HoVaTen-MSSV-MOTTracking
+https://github.com/QuocThangNguyen-091102/K5-L2A-DAY05-NguyenQuocThang-2A202603158-MOTTracking
 ```
 
 Ví dụ: `K5-L2-DAY05-NguyenVanAn-20241234-MOTTracking`.

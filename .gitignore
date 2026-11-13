@@ -16,3 +16,8 @@ MOT17*/
 # CVAT local lab preparation
 .lab-local/
 .venv/
+
+# Ảnh MOT17 và bảng nhận diện, không nộp
+/images/
+walkthrough_images/02_de_A_P1_P5.jpg
+/annotations.xml

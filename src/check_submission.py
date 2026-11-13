@@ -3,7 +3,7 @@
 Chỉ dùng thư viện chuẩn của Python 3.9+, không cần cài thêm gì.
 
 Ví dụ:
-    python src/check_submission.py --mot src/exports/HoVaTen_mot.zip
+    python src/check_submission.py --mot src/exports/NguyenQuocThang_mot.zip
     python src/check_submission.py --mot src/exports/HoVaTen_mot.zip --cvat src/exports/HoVaTen_cvat_video.zip
 
 Script KHÔNG có ground truth nên không tính MOTA / IDF1. Nó chỉ bắt các lỗi
