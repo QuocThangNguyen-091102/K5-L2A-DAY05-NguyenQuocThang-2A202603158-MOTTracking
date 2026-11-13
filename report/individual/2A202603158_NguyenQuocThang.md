@@ -32,12 +32,14 @@ Số keyframe lấy từ kết quả `src/check_submission.py`.
 
 | Mã | Số keyframe | Keyframe ở frame | Số frame có mặt | Keyframe / 100 frame | Thời gian (phút) | Chỗ khó |
 |---|---|---|---|---|---|---|
-| P1 | 44 | 0, 5, 10, 15, 20, 25, 27, 30, 32, 39, 40, 48, 50, 51, 56, 60, 62, 64, 65, 66, 71, 75, 76, 85, 90, 96, 98, 101, 102, 104, 109, 112, 115, 117, 118, 120, 122, 124, 129, 137, 138, 144, 146, 149 | 150 | 29.3 | | Nhìn qua kính, bị che 27–55, đi – dừng – đi nhiều lần |
-| P2 | 26 | 60, 64, 69, 74, 79, 83, 85, 88, 89, 93, 95, 100, 105, 111, 116, 121, 126, 129, 131, 132, 135, 136, 138, 140, 145, 148 | 90 | 28.9 | | Chỉ thấy một phần sau kính lúc đầu, khó ước lượng box toàn thân |
-| P3 | 37 | 0, 10, 15, 16, 21, 27, 31, 36, 42, 47, 52, 57, 62, 67, 71, 72, 74, 75, 77, 78, 81, 82, 83, 86, 87, 90, 95, 100, 105, 110, 117, 122, 127, 134, 140, 145, 148 | 150 | 24.7 | | Lại gần camera, box đổi kích thước nhanh 117–135; đổi tốc độ 62–87 |
-| P4 | 26 | 39, 46, 53, 57, 61, 66, 72, 81, 87, 92, 97, 102, 106, 111, 112, 116, 117, 120, 124, 127, 132, 136, 140, 144, 147, 149 | 111 | 23.4 | | Bị mép ảnh cắt 39–66; đi sát P3 |
-| P5 | 13 | 0, 5, 11, 16, 20, 25, 30, 36, 41, 106, 109, 138, 144 | 150 | 8.7 | | Bị P3, P4 che 109–149 |
+| P1 | 44 | 0, 5, 10, 15, 20, 25, 27, 30, 32, 39, 40, 48, 50, 51, 56, 60, 62, 64, 65, 66, 71, 75, 76, 85, 90, 96, 98, 101, 102, 104, 109, 112, 115, 117, 118, 120, 122, 124, 129, 137, 138, 144, 146, 149 | 150 | 29.3 | ~23 | Nhìn qua kính, bị che 27–55, đi – dừng – đi nhiều lần |
+| P2 | 26 | 60, 64, 69, 74, 79, 83, 85, 88, 89, 93, 95, 100, 105, 111, 116, 121, 126, 129, 131, 132, 135, 136, 138, 140, 145, 148 | 90 | 28.9 | ~13 | Chỉ thấy một phần sau kính lúc đầu, khó ước lượng box toàn thân |
+| P3 | 37 | 0, 10, 15, 16, 21, 27, 31, 36, 42, 47, 52, 57, 62, 67, 71, 72, 74, 75, 77, 78, 81, 82, 83, 86, 87, 90, 95, 100, 105, 110, 117, 122, 127, 134, 140, 145, 148 | 150 | 24.7 | ~19 | Lại gần camera, box đổi kích thước nhanh 117–135; đổi tốc độ 62–87 |
+| P4 | 26 | 39, 46, 53, 57, 61, 66, 72, 81, 87, 92, 97, 102, 106, 111, 112, 116, 117, 120, 124, 127, 132, 136, 140, 144, 147, 149 | 111 | 23.4 | ~13 | Bị mép ảnh cắt 39–66; đi sát P3 |
+| P5 | 13 | 0, 5, 11, 16, 20, 25, 30, 36, 41, 106, 109, 138, 144 | 150 | 8.7 | ~7 | Bị P3, P4 che 109–149 |
 | **Tổng** | **146** | | **651** | **22.4** | **75** | |
+
+Ghi chú thời gian: tổng 75 phút tính từ lúc tạo job (22:01) đến lần lưu annotation cuối (23:16). Mình không bấm giờ riêng cho từng người, nên thời gian từng người là ước tính, chia theo tỉ lệ số keyframe.
 
 Keyframe / 100 frame của cả bài = tổng keyframe ÷ tổng số frame có mặt × 100 = 146 ÷ 651 × 100 ≈ **22.4**
 
@@ -77,12 +79,12 @@ Loại lỗi dùng đúng một trong 7 mã: `id_switch`, `fragmentation`, `lost
 
 | Frame | Mã người | Loại lỗi | Mô tả một câu | Phát hiện ở lượt | Đã sửa? |
 |---:|---|---|---|---|---|
-| 40 | P1 | `drift` | Mép trái box nhảy từ x≈319 sang x≈346 và box hẹp lại trong 1 frame, tức là box bị co theo phần nhìn thấy thay vì giữ toàn thân | 1 | Chưa — cần kéo lại mép trái trên CVAT |
-| 49–51 | P1 | `drift` | Mép trên box nhấp nhô 454 → 449 → 444 → 454 trong lúc bị che, box rung không theo người | 1 | Chưa — cần xóa keyframe thừa ở 50–51 |
-| 84–88 | P2 | `drift` | Box giật lùi sang trái (x 285 → 270) rồi vọt lại sang phải trong 4 frame, trong khi người đi đều | 1 | Chưa — cần chỉnh keyframe 85 |
-| 117 | P4 | `drift` | Mép trên box nhảy lên 28 px trong 1 frame (227 → 199), cao hơn đầu người | 2 | Chưa — cần chỉnh keyframe 117 |
-| 30–31, 39 | P1 | `flag` | Cờ `occluded` tắt lắt nhắt giữa đoạn bị che 27–55 trong khi P1 vẫn bị che một phần | 1 | Chưa — cần xem lại từng frame |
-| 120–149 | P2 | `flag` | P2 đã ra vùng cửa mở, thấy rõ toàn thân nhưng cờ `occluded` vẫn bật đến hết đoạn | 2 | Chưa — cần tắt `occluded` từ frame thấy rõ |
+| 40 | P1 | `drift` | Mép trái box nhảy từ x≈319 sang x≈346 và box hẹp lại trong 1 frame, tức là box bị co theo phần nhìn thấy thay vì giữ toàn thân | 1 | Không. Box chỉ hẹp lại một đoạn ngắn, vẫn bám đúng người, không đổi ID |
+| 49–51 | P1 | `drift` | Mép trên box nhấp nhô 454 → 449 → 444 → 454 trong lúc bị che, box rung không theo người | 1 | Không. Lệch tối đa 10 px trên box cao ~260 px, box vẫn bao người, không đổi ID |
+| 84–88 | P2 | `drift` | Box giật lùi sang trái (x 285 → 270) rồi vọt lại sang phải trong 4 frame, trong khi người đi đều | 1 | Không. Chỉ kéo dài 4 frame, box vẫn bám đúng người, không đổi ID |
+| 117 | P4 | `drift` | Mép trên box nhảy lên 28 px trong 1 frame (227 → 199), cao hơn đầu người | 2 | Không. Lệch 28 px trên box cao ~690 px, vẫn bao đúng người, không đổi ID |
+| 30–31, 39 | P1 | `flag` | Cờ `occluded` tắt lắt nhắt giữa đoạn bị che 27–55 trong khi P1 vẫn bị che một phần | 1 | Không. Cờ `occluded` chỉ đổi cột visibility, box vẫn có trong `gt.txt`, không ảnh hưởng ghép box và ID |
+| 120–149 | P2 | `flag` | P2 đã ra vùng cửa mở, thấy rõ toàn thân nhưng cờ `occluded` vẫn bật đến hết đoạn | 2 | Không. Cờ `occluded` thừa chỉ đổi cột visibility, box vẫn có trong `gt.txt`, không ảnh hưởng ghép box và ID |
 
 Tổng hợp số lỗi theo loại:
 
@@ -102,7 +104,7 @@ Hai lỗi: `drift` của P4 ở frame 117 và `flag` của P2 từ frame 120. �
 | Tên file CVAT for video 1.1 | `src/exports/NguyenQuocThang_cvat_video.zip` |
 | Số track ID khác nhau trong `gt/gt.txt` (phải là 5) | 5 |
 | Frame `outside` không có dòng trong `gt.txt` (đúng / sai) | Không áp dụng: không người nào bị bật `outside` (P1 chỉ bị che một phần, cả 5 người không rời khung trước frame 149) |
-| Job đã completed trên CVAT máy cá nhân | |
+| Job đã completed trên CVAT máy cá nhân | Có (job 3, state `completed`) |
 
 Dán phần tóm tắt in ra từ `src/check_submission.py`:
 
