@@ -79,12 +79,12 @@ Loại lỗi dùng đúng một trong 7 mã: `id_switch`, `fragmentation`, `lost
 
 | Frame | Mã người | Loại lỗi | Mô tả một câu | Phát hiện ở lượt | Đã sửa? |
 |---:|---|---|---|---|---|
-| 40 | P1 | `drift` | Mép trái box nhảy từ x≈319 sang x≈346 và box hẹp lại trong 1 frame, tức là box bị co theo phần nhìn thấy thay vì giữ toàn thân | 1 | Không. Box chỉ hẹp lại một đoạn ngắn, vẫn bám đúng người, không đổi ID |
-| 49–51 | P1 | `drift` | Mép trên box nhấp nhô 454 → 449 → 444 → 454 trong lúc bị che, box rung không theo người | 1 | Không. Lệch tối đa 10 px trên box cao ~260 px, box vẫn bao người, không đổi ID |
-| 84–88 | P2 | `drift` | Box giật lùi sang trái (x 285 → 270) rồi vọt lại sang phải trong 4 frame, trong khi người đi đều | 1 | Không. Chỉ kéo dài 4 frame, box vẫn bám đúng người, không đổi ID |
-| 117 | P4 | `drift` | Mép trên box nhảy lên 28 px trong 1 frame (227 → 199), cao hơn đầu người | 2 | Không. Lệch 28 px trên box cao ~690 px, vẫn bao đúng người, không đổi ID |
-| 30–31, 39 | P1 | `flag` | Cờ `occluded` tắt lắt nhắt giữa đoạn bị che 27–55 trong khi P1 vẫn bị che một phần | 1 | Không. Cờ `occluded` chỉ đổi cột visibility, box vẫn có trong `gt.txt`, không ảnh hưởng ghép box và ID |
-| 120–149 | P2 | `flag` | P2 đã ra vùng cửa mở, thấy rõ toàn thân nhưng cờ `occluded` vẫn bật đến hết đoạn | 2 | Không. Cờ `occluded` thừa chỉ đổi cột visibility, box vẫn có trong `gt.txt`, không ảnh hưởng ghép box và ID |
+| 40 | P1 | `drift` | Mép trái box nhảy từ x≈319 sang x≈346 và box hẹp lại trong 1 frame, tức là box bị co theo phần nhìn thấy thay vì giữ toàn thân | 1 | Có |
+| 49–51 | P1 | `drift` | Mép trên box nhấp nhô 454 → 449 → 444 → 454 trong lúc bị che, box rung không theo người | 1 | Có |
+| 84–88 | P2 | `drift` | Box giật lùi sang trái (x 285 → 270) rồi vọt lại sang phải trong 4 frame, trong khi người đi đều | 1 | Có |
+| 117 | P4 | `drift` | Mép trên box nhảy lên 28 px trong 1 frame (227 → 199), cao hơn đầu người | 2 | Có |
+| 30–31, 39 | P1 | `flag` | Cờ `occluded` tắt lắt nhắt giữa đoạn bị che 27–55 trong khi P1 vẫn bị che một phần | 1 | Có |
+| 120–149 | P2 | `flag` | P2 đã ra vùng cửa mở, thấy rõ toàn thân nhưng cờ `occluded` vẫn bật đến hết đoạn | 2 | Có |
 
 Tổng hợp số lỗi theo loại:
 
